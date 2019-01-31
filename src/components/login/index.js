@@ -1,2 +1,3 @@
-export { default as loginPageComponent } from './LoginPageComponent';
-// export default 'bar';
+import LoginPageComponent from './LoginPageComponent';
+
+export default LoginPageComponent;
