@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader';
 import './App.css';
-import LoginPageComponent from './components/login';
+import LoginComponent from './components/login';
 
 const App = React.memo(() => {
   return (
     <div className="App">
-      <h1> Hello, World! </h1>
-      <LoginPageComponent />
+      This is from the login page
+      <LoginComponent />
     </div>
   );
 });
