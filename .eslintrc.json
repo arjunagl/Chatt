@@ -4,6 +4,20 @@
   "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": "error",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "no-console": "off"
+  },
+  "globals": {
+    "navigator": "readable",
+    "document": "readable",
+    "console": "readable",
+    "PUBLIC_URL": "readable"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }

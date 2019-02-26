@@ -2,6 +2,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import registerServiceWorker from 'Utilities/pwaHelper';
 import App from './App';
 import configureStore from './configureStore';
 import history from './utils/history';
@@ -14,6 +15,8 @@ ReactDOM.render(
       <App />
     </ConnectedRouter>
   </Provider>,
-  // eslint-disable-next-line no-undef
   document.getElementById('root')
 );
+
+// Just uncomment this line to register the service worker and get it working
+// registerServiceWorker();

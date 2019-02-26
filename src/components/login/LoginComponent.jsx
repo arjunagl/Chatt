@@ -1,11 +1,22 @@
 import React from 'react';
 
-// const loginPageComponent = React.memo(() => {
-//   return <div>This is the login component</div>;
-// });
-
 const loginPageComponent = () => {
-  return <div>Login Page</div>;
+  const divStyle = {
+    margin: '40px',
+    border: 'solid',
+    display: 'flex',
+    'flex-direction': 'column'
+  };
+
+  return (
+    <div style={divStyle}>
+      <div>Username or email address</div>
+      <input type="text" />
+      <div>Password</div>
+      <input type="password" />
+      <input type="submit" value="Login" />
+    </div>
+  );
 };
 
 export default loginPageComponent;

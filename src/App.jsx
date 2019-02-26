@@ -12,13 +12,14 @@ const App = () => (
   <div>
     <ul>
       <li>
-        <Link to="/settings">Settings</Link>
+        <Link to="/settings">S</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">L</Link>
       </li>
     </ul>
     <Switch>
+      <Route path="/" component={LoadableLoginComponent} />
       <Route exact path="/login" component={LoadableLoginComponent} />
       <Route exact path="/settings" render={() => <div>Settings Page</div>} />
     </Switch>
