@@ -22,6 +22,7 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     alias: {
+      Styles: path.resolve(__dirname, 'src/common/styles/'),
       Components: path.resolve(__dirname, 'src/components/'),
       Utilities: path.resolve(__dirname, 'src/utils/')
     }

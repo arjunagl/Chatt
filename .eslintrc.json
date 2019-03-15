@@ -8,10 +8,10 @@
     "no-console": "off"
   },
   "globals": {
-    "navigator": "readable",
-    "document": "readable",
-    "console": "readable",
-    "PUBLIC_URL": "readable"
+    "navigator": "readonly",
+    "document": "readonly",
+    "console": "readonly",
+    "PUBLIC_URL": "readonly"
   },
   "env": {
     "browser": true,

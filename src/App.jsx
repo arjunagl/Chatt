@@ -1,27 +1,25 @@
+import PrivateRouteComponent from 'Components/route';
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 const LoadableLoginComponent = Loadable({
   loader: () => import('./components/login'),
   loading: () => <div>Loading</div>
 });
 
+const LoadableLandingPageComponent = Loadable({
+  loader: () => import('./components/landing'),
+  loading: () => <div>Loading</div>
+});
+
 const App = () => (
   <div>
-    <ul>
-      <li>
-        <Link to="/settings">S</Link>
-      </li>
-      <li>
-        <Link to="/login">L</Link>
-      </li>
-    </ul>
     <Switch>
-      <Route path="/" component={LoadableLoginComponent} />
       <Route exact path="/login" component={LoadableLoginComponent} />
       <Route exact path="/settings" render={() => <div>Settings Page</div>} />
+      <PrivateRouteComponent path="/" component={LoadableLandingPageComponent} />
     </Switch>
   </div>
 );

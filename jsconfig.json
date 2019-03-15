@@ -4,8 +4,9 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "Components/*": ["src/components/*"],
-      "Utilities/*": ["src/utils/*"]
+      "Components/*": ["./src/components/*"],
+      "Utilities/*": ["./src/utils/*"],
+      "Styles/*": ["./src/common/styles/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

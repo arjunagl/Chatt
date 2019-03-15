@@ -1,7 +1,9 @@
+import '@babel/polyfill';
 import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+// eslint-disable-next-line no-unused-vars
 import registerServiceWorker from 'Utilities/pwaHelper';
 import App from './App';
 import configureStore from './configureStore';
