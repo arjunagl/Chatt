@@ -30,7 +30,6 @@ const LoginPageComponent = ({ login }) => {
   const [formData, setFormData] = useState({ userNameOrEmail: '', password: '' });
 
   const updateFormData = event => {
-    console.log(`${event.target.name} : ${event.target.value}`);
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
@@ -41,7 +40,6 @@ const LoginPageComponent = ({ login }) => {
 
   const submitLogin = () => {
     console.log(`UserName: ${userNameOrEmail}, password: ${password}`);
-    // console.log('logging in');
     login(userNameOrEmail, password);
   };
 

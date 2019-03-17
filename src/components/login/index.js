@@ -1,5 +1,5 @@
 import LoginComponent from './LoginComponent';
-import rootLoginSaga, { helloSaga } from './loginSagas';
+import rootLoginSaga from './loginSagas';
 
 export default LoginComponent;
-export { rootLoginSaga, helloSaga };
+export { rootLoginSaga };
