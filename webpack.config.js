@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  // entry: ['@babel/polyfill', './src/index.jsx'],
+  devtool: 'inline-source-map',
   entry: './src/index.jsx',
   mode: 'development',
   module: {
@@ -33,13 +33,6 @@ module.exports = {
     filename: '[name].bundle.js',
     publicPath: '/dist/'
   },
-  devServer: {
-    https: true,
-    contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
-    publicPath: 'http://localhost:3000/dist/',
-    hotOnly: true
-  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.DefinePlugin({
@@ -49,5 +42,12 @@ module.exports = {
       { from: './src/serviceWorker.js', to: '../public/', toType: 'dir', force: true }
     ]),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  devServer: {
+    https: true,
+    contentBase: path.join(__dirname, 'public/'),
+    port: 3000,
+    publicPath: 'http://localhost:3000/dist/',
+    hotOnly: true
+  }
 };
