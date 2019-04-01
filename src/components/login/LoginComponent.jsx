@@ -152,11 +152,11 @@ const mapDispatchToProps = dispatch => ({
   login: (userName, password) => dispatch({ type: 'CHATT_LOGIN', userName, password })
 });
 
-const mapStateToProps = state => ({
-  isLoggedIn: state.userName != null
-});
+// const mapStateToProps = state => ({
+//   isLoggedIn: state.userName != null
+// });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(LoginPageComponent);

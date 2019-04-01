@@ -16,7 +16,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export default () => {
   const store = createStore(
-    createReducer(null, history),
+    createReducer(history),
     {},
     composeEnhancers(compose(applyMiddleware(routerMiddleware(history), sagaMiddleware)))
   );

@@ -17,9 +17,12 @@ const PrivateRouteComponent = React.memo(({ component: Component, isLoggedIn, ..
   );
 });
 
-const mapStateToProps = () => ({
-  isLoggedIn: false
-});
+const mapStateToProps = state => {
+  return {
+    // isLoggedIn: state.login.userName
+    isLoggedIn: true
+  };
+};
 
 export default connect(
   mapStateToProps,
