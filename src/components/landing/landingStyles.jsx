@@ -26,7 +26,8 @@ const MessagingBlockContainerStyle = {
 };
 
 const HeaderBlockContainerStyle = {
-  gridArea: 'header'
+  gridArea: 'header',
+  justifySelf: 'center'
 };
 
 export { LandingBlockStyle, MessagingBlockContainerStyle, HeaderBlockContainerStyle };
