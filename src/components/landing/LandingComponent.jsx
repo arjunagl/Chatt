@@ -1,5 +1,5 @@
 import React from 'react';
-import MessagingComponent from 'Components/messaging';
+import MessagingComponent from '../messaging';
 import * as LandingPageStyles from './landingStyles';
 
 const LandingComponent = () => {

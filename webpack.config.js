@@ -21,12 +21,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      Styles: path.resolve(__dirname, 'src/common/styles/'),
-      Components: path.resolve(__dirname, 'src/components/'),
-      Utilities: path.resolve(__dirname, 'src/utils/')
-    }
+    extensions: ['*', '.js', '.jsx']
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
@@ -46,7 +41,7 @@ module.exports = {
   devServer: {
     https: true,
     contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
+    port: 3001,
     publicPath: 'http://localhost:3000/dist/',
     hotOnly: true
   }

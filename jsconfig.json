@@ -2,12 +2,7 @@
   "compilerOptions": {
     "target": "es2018",
     "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "Components/*": ["./src/components/*"],
-      "Utilities/*": ["./src/utils/*"],
-      "Styles/*": ["./src/common/styles/*"]
-    }
+    "baseUrl": "./"
   },
   "exclude": ["node_modules", "dist"]
 }

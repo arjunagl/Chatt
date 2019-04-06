@@ -22,7 +22,10 @@ const LandingBlockStyle = styled.div`
 `;
 
 const MessagingBlockContainerStyle = {
-  gridArea: 'content'
+  gridArea: 'content',
+  borderLeft: 'solid',
+  borderTop: 'solid',
+  padding: '10px'
 };
 
 const HeaderBlockContainerStyle = {

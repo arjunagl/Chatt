@@ -1,8 +1,8 @@
-import PrivateRouteComponent from 'Components/route';
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
 import { Route, Switch } from 'react-router-dom';
+import PrivateRouteComponent from './components/route';
 
 const LoadableLoginComponent = Loadable({
   loader: () => import('./components/login'),

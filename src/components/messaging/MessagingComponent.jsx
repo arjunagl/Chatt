@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import MessageComponent from 'Components/messaging/message';
+import MessageComponent from './message';
+import SendMessageComponent from './sendMessage';
 import * as MessagingComponentStyles from './MessagingComponentStyles';
 
 const MessagingComponent = React.memo(({ loadMessages, messages, ...props }) => {
@@ -22,9 +23,12 @@ const MessagingComponent = React.memo(({ loadMessages, messages, ...props }) => 
     />
   ));
   return (
-    <MessagingComponentStyles.MessagingBlock {...props}>
-      {messagesToRender}
-    </MessagingComponentStyles.MessagingBlock>
+    <React.Fragment>
+      <MessagingComponentStyles.MessagingBlock {...props}>
+        {messagesToRender}
+      </MessagingComponentStyles.MessagingBlock>
+      <SendMessageComponent {...props} />
+    </React.Fragment>
   );
 });
 

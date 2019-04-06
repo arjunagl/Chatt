@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import styled from 'styled-components';
-import * as AppStyles from 'Styles/appStyles';
+import * as AppStyles from '../../common/styles/appStyles';
 
 const LoginBlockContainer = styled(AppStyles.BlockStyle)`
   display: inline-flex;
