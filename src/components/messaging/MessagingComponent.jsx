@@ -23,12 +23,12 @@ const MessagingComponent = React.memo(({ loadMessages, messages, ...props }) => 
     />
   ));
   return (
-    <React.Fragment>
-      <MessagingComponentStyles.MessagingBlock {...props}>
+    <div {...props}>
+      <MessagingComponentStyles.MessagingBlock>
         {messagesToRender}
       </MessagingComponentStyles.MessagingBlock>
-      <SendMessageComponent {...props} />
-    </React.Fragment>
+      <SendMessageComponent style={MessagingComponentStyles.SendMessageStyle} />
+    </div>
   );
 });
 

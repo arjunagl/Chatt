@@ -1,5 +1,6 @@
 import React from 'react';
 import MessagingComponent from '../messaging';
+import FriendsComponent from '../friends';
 import * as LandingPageStyles from './landingStyles';
 
 const LandingComponent = () => {
@@ -7,6 +8,7 @@ const LandingComponent = () => {
     <LandingPageStyles.LandingBlockStyle>
       <div style={LandingPageStyles.HeaderBlockContainerStyle}>This is the header</div>
       <MessagingComponent style={LandingPageStyles.MessagingBlockContainerStyle} />
+      <FriendsComponent style={LandingPageStyles.FriendsContainerStyle} />
     </LandingPageStyles.LandingBlockStyle>
   );
 };

@@ -28,9 +28,19 @@ const MessagingBlockContainerStyle = {
   padding: '10px'
 };
 
+const FriendsContainerStyle = {
+  gridArea: 'sidebar',
+  borderTop: 'solid'
+};
+
 const HeaderBlockContainerStyle = {
   gridArea: 'header',
   justifySelf: 'center'
 };
 
-export { LandingBlockStyle, MessagingBlockContainerStyle, HeaderBlockContainerStyle };
+export {
+  LandingBlockStyle,
+  MessagingBlockContainerStyle,
+  HeaderBlockContainerStyle,
+  FriendsContainerStyle
+};

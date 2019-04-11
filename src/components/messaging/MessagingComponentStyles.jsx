@@ -7,11 +7,17 @@ const MessagingBlock = styled.div`
 `;
 
 const IncomingMessageStyle = {
+  margin: '10px 0',
   alignSelf: 'flex-start'
 };
 
 const OutgoingMessageStyle = {
+  margin: '10px 0',
   alignSelf: 'flex-end'
 };
 
-export { MessagingBlock, IncomingMessageStyle, OutgoingMessageStyle };
+const SendMessageStyle = {
+  marginTop: '30px'
+};
+
+export { MessagingBlock, IncomingMessageStyle, OutgoingMessageStyle, SendMessageStyle };
