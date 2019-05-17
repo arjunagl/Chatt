@@ -1,12 +1,12 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, call } from 'redux-saga/effects';
 
-function* loadFriends(friendService) {
-  const friends = friendService.loadFriendsFor();
+function* loadFriends(friendService, apolloClient) {
+  const friends = yield call(friendService.loadFriendsFor, '1', apolloClient);
   yield put({ type: 'LOAD_FRIENDS_DONE', status: 'success', friends });
 }
 
-export default function* watchAndLoadFriends({ friendService }) {
-  yield takeEvery('LOAD_FRIENDS', loadFriends, friendService);
+export default function* watchAndLoadFriends({ friendService, apolloClient }) {
+  yield takeEvery('LOAD_FRIENDS', loadFriends, friendService, apolloClient);
 }
 
 function* loadMessages(messageService) {

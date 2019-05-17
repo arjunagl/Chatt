@@ -6,6 +6,7 @@ import {
   watchAndLoadMessagesForFriend,
   FriendService
 } from '../components/friends';
+import apolloClient from './graphqlHelper';
 
 export default function* rootSaga(services) {
   yield all([
@@ -19,6 +20,7 @@ export default function* rootSaga(services) {
 export function configureServices() {
   return {
     messageService: MessageService,
-    friendService: FriendService
+    friendService: FriendService,
+    apolloClient
   };
-}      
+}

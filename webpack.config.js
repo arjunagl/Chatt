@@ -17,11 +17,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      }
+      },
+      { test: /\.tsx?$/, loader: 'ts-loader' }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
@@ -39,7 +40,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    https: true,
+    https: false,
     contentBase: path.join(__dirname, 'public/'),
     port: 3001,
     publicPath: 'http://localhost:3000/dist/',
