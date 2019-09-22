@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "copy src\\serviceWorker.js public",
-    "start": "npm run copy && webpack-dev-server --mode development --cert=./certificates/DevCert/02.pem ----key=./certificates/DevCert/private-key.key",
+    "start-cert": "npm run copy && webpack-dev-server --mode development --cert=./certificates/DevCert/02.pem ----key=./certificates/DevCert/private-key.key",
+    "start": "webpack-dev-server --mode development",
     "setup": "node ./src/utils/certHelper.js",
     "build": "webpack"
   },
