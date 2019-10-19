@@ -20,33 +20,33 @@ const mockFriends = [
 class FriendService {
   static async loadFriendsFor(user: string, apolloClient: ApolloClient<Person>) {
     try {
-      const queryResults = await apolloClient.query({
-        query: graphqlTag`
-          query getChatters($name: String!) {
-            person(name: $name) {
-              _id
-              name
-              friends {
-                name
-                friends {
-                  name
-                }
-              }
-            }
-          }
-        `,
-        variables: {
-          name: 'adam',
-          skip: 10,
-          first: 10
-        }
-      });
+      // const queryResults = await apolloClient.query({
+      //   query: graphqlTag`
+      //     query getChatters($name: String!) {
+      //       person(name: $name) {
+      //         _id
+      //         name
+      //         friends {
+      //           name
+      //           friends {
+      //             name
+      //           }
+      //         }
+      //       }
+      //     }
+      //   `,
+      //   variables: {
+      //     name: 'adam',
+      //     skip: 10,
+      //     first: 10
+      //   }
+      // });
 
-      const {
-        data: { person }
-      } = queryResults;
+      // const {
+      //   data: { person }
+      // } = queryResults;
       // map the results to the new friends
-      console.log(person);
+      // console.log(person);
       return mockFriends;
     } catch (e) {
       console.log(e);
