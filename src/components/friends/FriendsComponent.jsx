@@ -16,7 +16,11 @@ const FriendsComponent = React.memo(({ confirmedFriends, loadFriends, ...props }
       style={FriendsComponentStyles.FriendBlockStyle}
     />
   ));
-  return <div {...props}>{friendsToRender}</div>;
+  return (
+    <FriendsComponentStyles.FriendsContainerBlock>
+      {friendsToRender}
+    </FriendsComponentStyles.FriendsContainerBlock>
+  );
 });
 
 const mapStateToProps = state => {

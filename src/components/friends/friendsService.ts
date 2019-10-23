@@ -1,21 +1,22 @@
 import { ApolloClient } from 'apollo-client';
-import graphqlTag from 'graphql-tag';
+// import graphqlTag from 'graphql-tag';
+import mockFriends from './friendsMock.json';
 import Person from './person';
 
-const mockFriends = [
-  {
-    order: 1,
-    nickName: 'padam'
-  },
-  {
-    order: 2,
-    nickName: 'ding'
-  },
-  {
-    order: 3,
-    nickName: 'dong'
-  }
-];
+// const mockFriends = [
+//   {
+//     order: 1,
+//     nickName: 'padam'
+//   },
+//   {
+//     order: 2,
+//     nickName: 'ding'
+//   },
+//   {
+//     order: 3,
+//     nickName: 'dong'
+//   }
+// ];
 
 class FriendService {
   static async loadFriendsFor(user: string, apolloClient: ApolloClient<Person>) {
@@ -47,7 +48,7 @@ class FriendService {
       // } = queryResults;
       // map the results to the new friends
       // console.log(person);
-      return mockFriends;
+      return mockFriends.slice(0, 50);
     } catch (e) {
       console.log(e);
     }

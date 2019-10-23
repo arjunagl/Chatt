@@ -4,6 +4,7 @@ const LandingBlockStyle = styled.div`
   display: grid;
   outline: solid;
   grid-template-columns: 1fr 2fr 2fr;
+  height: 100vh;
   grid-template-areas:
     'header header header'
     'sidebar content content'
@@ -35,6 +36,9 @@ const FriendsContainerStyle = {
 
 const HeaderBlockContainerStyle = {
   gridArea: 'header',
+  width: '100%',
+  textAlign: 'center',
+  marginBottom: '10px',
   justifySelf: 'center'
 };
 
