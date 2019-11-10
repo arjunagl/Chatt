@@ -11,5 +11,4 @@ const FriendsContainerBlock = styled.div`
     border: solid;
   }
 `;
-// eslint-disable-next-line import/prefer-default-export
 export { FriendBlockStyle, FriendsContainerBlock };

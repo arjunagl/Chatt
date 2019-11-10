@@ -1,9 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import FriendComponent from './FriendComponent';
 import * as FriendsComponentStyles from './FriendsComponentStyles';
 
 const FriendsComponent = React.memo(({ confirmedFriends, loadFriends, ...props }) => {
+  const ref = useRef(null);
+  function handleScroll() {
+    // console.log(
+    //   `window.innerHeight = ${window.innerHeight}, document.documentElement.scrollTop = ${document.documentElement.scrollTop}, document.documentElement.offsetHeight = ${document.documentElement.offsetHeight}`
+    // );
+    console.log(ref.current.clientHeight);
+    if (
+      ref.current.clientHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    ) {
+      return;
+    }
+    console.log('Fetch more list items!');
+  }
+
   useEffect(() => {
     loadFriends();
   }, []);
@@ -17,7 +32,7 @@ const FriendsComponent = React.memo(({ confirmedFriends, loadFriends, ...props }
     />
   ));
   return (
-    <FriendsComponentStyles.FriendsContainerBlock>
+    <FriendsComponentStyles.FriendsContainerBlock onScroll={handleScroll} ref={ref}>
       {friendsToRender}
     </FriendsComponentStyles.FriendsContainerBlock>
   );
