@@ -1,7 +1,15 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
+import { put, takeEvery, call, select } from 'redux-saga/effects';
 
 function* loadFriends(friendService, apolloClient) {
-  const friends = yield call(friendService.loadFriendsFor, '1', apolloClient);
+  // Read the number of friends already loaded in order to implement paging
+  const getFriends = state => state.chatt.friends.confirmedFriends;
+  const loadedFriends = yield select(getFriends);
+  const friends = yield call(
+    friendService.loadFriendsFor,
+    '1',
+    loadedFriends && loadedFriends.length > 0 ? loadedFriends.length : 0,
+    apolloClient
+  );
   yield put({ type: 'LOAD_FRIENDS_DONE', status: 'success', friends });
 }
 

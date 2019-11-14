@@ -6,13 +6,8 @@ import * as FriendsComponentStyles from './FriendsComponentStyles';
 const FriendsComponent = React.memo(({ confirmedFriends, loadFriends, ...props }) => {
   const ref = useRef(null);
   function handleScroll() {
-    // this.refs.myscroll.scrollTop + this.refs.myscroll.clientHeight >=
-    // this.refs.myscroll.scrollHeight
-    console.log('scrollTop = ', ref.current.scrollTop);
-    console.log('clientHeight =', ref.current.clientHeight);
-    console.log('scrollHeight = ', ref.current.scrollHeight);
     if (ref.current.scrollTop + ref.current.clientHeight >= ref.current.scrollHeight) {
-      console.log('Fetch more list items!');
+      loadFriends();
       return;
     }
   }

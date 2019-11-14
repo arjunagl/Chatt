@@ -16,10 +16,6 @@ const LandingBlockStyle = styled.div`
       'content content content'
       'footer footer footer';
   }
-
-  .sidebar {
-    display: none;
-  }
 `;
 
 const MessagingBlockContainerStyle = {
