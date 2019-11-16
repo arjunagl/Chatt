@@ -31,6 +31,19 @@ const HeaderBlockContainer = styled.div`
   }
 `;
 
+const MobileHeaderBlockContainer = styled.div`
+  text-align: center;
+  grid-area: content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 25px;
+  @media screen and (min-width: 645px) {
+    display: none;
+  }
+`;
+
 const MessagingBlockContainerStyle = {
   gridArea: 'content',
   outline: 'solid',
@@ -46,5 +59,6 @@ export {
   LandingBlockStyle,
   MessagingBlockContainerStyle,
   HeaderBlockContainer,
-  FriendsContainerStyle
+  FriendsContainerStyle,
+  MobileHeaderBlockContainer
 };
