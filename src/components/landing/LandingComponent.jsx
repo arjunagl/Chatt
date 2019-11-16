@@ -6,7 +6,7 @@ import * as LandingPageStyles from './landingStyles';
 const LandingComponent = () => {
   return (
     <LandingPageStyles.LandingBlockStyle>
-      <div style={LandingPageStyles.HeaderBlockContainerStyle}>Chatt</div>
+      <LandingPageStyles.HeaderBlockContainer> ☰ Chatt</LandingPageStyles.HeaderBlockContainer>
       <MessagingComponent style={LandingPageStyles.MessagingBlockContainerStyle} />
       <FriendsComponent style={LandingPageStyles.FriendsContainerStyle} />
     </LandingPageStyles.LandingBlockStyle>

@@ -12,35 +12,39 @@ const LandingBlockStyle = styled.div`
 
   @media screen and (max-width: 645px) {
     grid-template-areas:
-      'header header header'
       'content content content'
-      'footer footer footer';
+      'content content content'
+      'content content content';
+  }
+`;
+
+const HeaderBlockContainer = styled.div`
+  text-align: center;
+  grid-area: header;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 25px;
+  @media screen and (max-width: 645px) {
+    display: none;
   }
 `;
 
 const MessagingBlockContainerStyle = {
   gridArea: 'content',
-  borderLeft: 'solid',
-  borderTop: 'solid',
+  outline: 'solid',
   padding: '10px'
 };
 
 const FriendsContainerStyle = {
   gridArea: 'sidebar',
-  borderTop: 'solid'
-};
-
-const HeaderBlockContainerStyle = {
-  gridArea: 'header',
-  width: '100%',
-  textAlign: 'center',
-  marginBottom: '10px',
-  justifySelf: 'center'
+  outline: 'solid'
 };
 
 export {
   LandingBlockStyle,
   MessagingBlockContainerStyle,
-  HeaderBlockContainerStyle,
+  HeaderBlockContainer,
   FriendsContainerStyle
 };

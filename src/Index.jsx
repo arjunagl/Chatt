@@ -2,8 +2,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-// eslint-disable-next-line no-unused-vars
-import registerServiceWorker from './utils/pwaHelper';
+// import registerServiceWorker from './utils/pwaHelper';
 import App from './App';
 import configureStore from './utils/configureStore';
 import history from './utils/history';
