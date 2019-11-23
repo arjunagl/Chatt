@@ -4,6 +4,7 @@ const LandingBlockStyle = styled.div`
   display: grid;
   outline: solid;
   grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: 1fr 8fr 1fr;
   height: 95vh;
   grid-template-areas:
     'header header header'
@@ -12,7 +13,7 @@ const LandingBlockStyle = styled.div`
 
   @media screen and (max-width: 645px) {
     grid-template-areas:
-      'content content content'
+      'header header header'
       'content content content'
       'content content content';
   }
@@ -25,6 +26,7 @@ const HeaderBlockContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: center;
   height: 25px;
   @media screen and (max-width: 645px) {
     display: none;
@@ -33,11 +35,13 @@ const HeaderBlockContainer = styled.div`
 
 const MobileHeaderBlockContainer = styled.div`
   text-align: center;
-  grid-area: content;
+  grid-area: header;
+  cursor: pointer;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: center;
   height: 25px;
   @media screen and (min-width: 645px) {
     display: none;
