@@ -1,4 +1,4 @@
 import menuReducer from './menuReducer';
-import menuComponent from './MenuComponent';
+import MenuComponent from './MenuComponent';
 
-export { menuReducer, menuComponent };
+export { menuReducer, MenuComponent };

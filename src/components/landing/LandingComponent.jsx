@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MessagingComponent from '../messaging';
 import FriendsComponent from '../friends';
-import { menuComponent } from '../menu';
+import { MenuComponent } from '../menu';
 import * as LandingPageStyles from './landingStyles';
 
 const LandingComponent = ({ toggleMenu: dispatchToggleMenuCommand }) => {
@@ -16,8 +16,8 @@ const LandingComponent = ({ toggleMenu: dispatchToggleMenuCommand }) => {
         ☰
       </LandingPageStyles.MobileHeaderBlockContainer>
       <MessagingComponent style={LandingPageStyles.MessagingBlockContainerStyle} />
-      <FriendsComponent style={LandingPageStyles.FriendsContainerStyle} />
-      <menuComponent></menuComponent>
+      {/* <FriendsComponent style={LandingPageStyles.FriendsContainerStyle} /> */}
+      <MenuComponent></MenuComponent>
     </LandingPageStyles.LandingBlockStyle>
   );
 };
