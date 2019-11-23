@@ -5,7 +5,7 @@ const menuBlock = styled.div`
   flex-direction: column;
   align-items: center;
   grid-area: sidebar;
-  overflow-y: scroll;
+  overflow-y: hidden;
   outline: solid;
   @media screen and (max-width: 645px) {
     display: none;

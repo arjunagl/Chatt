@@ -7,8 +7,7 @@ const FriendBlockStyle = {
 const FriendsContainerBlock = styled.div`
    {
     overflow-y: scroll;
-    outline: solid;
-    grid-area: sidebar;
+    width: 100%;
   }
   @media screen and (max-width: 645px) {
     display: none;
