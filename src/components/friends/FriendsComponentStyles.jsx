@@ -10,7 +10,6 @@ const FriendsContainerBlock = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 645px) {
-    display: none;
   }
 `;
 

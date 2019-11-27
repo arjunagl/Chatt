@@ -15,7 +15,7 @@ const LandingBlockStyle = styled.div`
     grid-template-areas:
       'header header header'
       'content content content'
-      'content content content';
+      'footer footer footer';
   }
 `;
 

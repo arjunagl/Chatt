@@ -6,7 +6,11 @@ import * as FriendsComponentStyles from './FriendsComponentStyles';
 const FriendsComponent = React.memo(({ confirmedFriends, loadFriends, ...props }) => {
   const ref = useRef(null);
   function handleScroll() {
+    console.log(
+      `scrollTop =${ref.current.scrollTop}, clientHeight = ${ref.current.clientHeight}, scrollHeight = ${ref.current.scrollHeight}`
+    );
     if (ref.current.scrollTop + ref.current.clientHeight >= ref.current.scrollHeight) {
+      console.log('loading friends');
       loadFriends();
       return;
     }
