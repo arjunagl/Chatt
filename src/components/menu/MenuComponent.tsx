@@ -3,13 +3,19 @@ import { connect } from 'react-redux';
 import * as MenuComponentStyles from './MenuComponentStyles';
 // @ts-ignore
 import FriendsComponent from '../friends';
+import FriendSearchComponet from '../friends/search';
 import { MenuState } from './types';
 
-const menuComponent = React.memo(props => {
+interface MenuComponentProps {
+  displayMenu: boolean;
+}
+
+const menuComponent = React.memo(({ displayMenu }: MenuComponentProps) => {
   // tslint:disable-next-line: variable-name
-  const MenuBlock = MenuComponentStyles.menuBlock(props.displayMenu);
+  const MenuBlock = MenuComponentStyles.menuBlock(displayMenu);
   return (
     <MenuBlock>
+      <FriendSearchComponet></FriendSearchComponet>
       <FriendsComponent></FriendsComponent>
     </MenuBlock>
   );
