@@ -1,37 +1,30 @@
 import { connect } from 'react-redux';
-import React, { ChangeEventHandler, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as FriendSearchComponentStyles from './FriendSearchComponentStyles';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
-const friendComponent = React.memo(() => {
-  const [formData, setSearchTerm] = useState({
+const friendComponent = () => {
+  const [queryName, setQueryName] = useState({
     searchTerm: { value: '', valid: true }
   });
+  const [onSearch$] = useState(() => new Subject());
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     const formDataToSet = {
-      ...formData,
+      ...queryName,
       ...{ searchTerm: { valid: true, value: newValue } }
     };
-    setSearchTerm(formDataToSet);
-    subject.next(formDataToSet);
+    setQueryName(formDataToSet);
+    onSearch$.next(formDataToSet);
   };
 
-  const subject = new Subject();
-  const formInput$ = subject.pipe(debounceTime(5000));
-  // Using effects to setup the subscription and unsubscribe from the subscription
   useEffect(() => {
-    formInput$.subscribe(inputData => {
-      console.log(`dispatching the friends search = ${JSON.stringify(inputData, null, 2)}`);
+    const subscription = onSearch$.pipe(debounceTime(400)).subscribe(val => {
+      console.log(`this is value = ${val}`);
     });
-
-    return function cleanup() {
-      // @ts-ignore
-      formInput$.unsubscribe();
-    };
-  });
+  }, []);
 
   return (
     <FriendSearchComponentStyles.containerBlock>
@@ -42,6 +35,6 @@ const friendComponent = React.memo(() => {
       ></input>
     </FriendSearchComponentStyles.containerBlock>
   );
-});
+};
 
 export default friendComponent;
