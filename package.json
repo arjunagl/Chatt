@@ -42,11 +42,11 @@
     "tslint": "^5.19.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.6.2",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0",
-    "workbox-webpack-plugin": "^4.3.1"
+    "workbox-webpack-plugin": "^4.3.1",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
