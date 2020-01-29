@@ -7,14 +7,14 @@ const FriendsComponent = ({ confirmedFriends, loadFriends }) => {
   const ref = useRef(null);
   function handleScroll() {
     if (ref.current.scrollTop + ref.current.clientHeight >= ref.current.scrollHeight) {
-      loadFriends(false);
+      loadFriends();
       return;
     }
   }
 
   useEffect(() => {
     if (confirmedFriends.length == 0) {
-      loadFriends(true);
+      loadFriends();
     }
   }, [confirmedFriends]);
 
@@ -41,7 +41,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  loadFriends: start => dispatch({ type: 'LOAD_FRIENDS', start })
+  loadFriends: () => dispatch({ type: 'LOAD_FRIENDS' })
 });
 
 export default connect(

@@ -28,7 +28,7 @@ const friendComponent = () => {
       // friend.trim() !== ''
       //   ? dispatch({ type: 'SEARCH_FRIENDS_START', friend })
       //   : dispatch({ type: 'LOAD_FRIENDS', start: true });
-
+      dispatch({ type: 'CLEAR_FRIENDS' });
       dispatch({ type: 'FRIENDS_FILTER', filterText: friend });
       // dispatch({ type: 'SEARCH_FRIENDS_START', friend });
     });

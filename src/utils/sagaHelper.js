@@ -4,7 +4,6 @@ import { watchAndSendMessage } from '../components/messaging/sendMessage';
 import {
   watchAndLoadFriends,
   watchAndLoadMessagesForFriend,
-  watchAndFilterFriends,
   FriendService
 } from '../components/friends';
 
@@ -13,8 +12,7 @@ export default function* rootSaga(services) {
     watchAndLoadMessages(services),
     watchAndSendMessage(services),
     watchAndLoadFriends(services),
-    watchAndLoadMessagesForFriend(services),
-    watchAndFilterFriends(services)
+    watchAndLoadMessagesForFriend(services)
   ]);
 }
 

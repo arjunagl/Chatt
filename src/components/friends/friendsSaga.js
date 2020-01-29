@@ -1,6 +1,6 @@
 import { put, takeEvery, call, select } from 'redux-saga/effects';
 
-function* loadFriends(friendService, reset, action) {
+function* loadFriends(friendService, action) {
   // Read the number of friends already loaded in order to implement paging
   const getFriends = state => state.chatt.friends.confirmedFriends;
   const getFilterString = state => state.chatt.friends.filter;
@@ -9,23 +9,18 @@ function* loadFriends(friendService, reset, action) {
   const friends = yield call(
     friendService.loadFriendsFor,
     '1',
-    loadedFriends && loadedFriends.length && !reset > 0 ? loadedFriends.length : 0,
+    loadedFriends && loadedFriends.length > 0 ? loadedFriends.length : 0,
     filterString
   );
   yield put({
     type: 'LOAD_FRIENDS_DONE',
     status: 'success',
-    friends,
-    start: action.start || reset
+    friends
   });
 }
 
 export default function* watchAndLoadFriends({ friendService }) {
   yield takeEvery('LOAD_FRIENDS', loadFriends, friendService, false);
-}
-
-export function* watchAndFilterFriends({ friendService }, friendVal) {
-  yield takeEvery('FRIENDS_FILTER', loadFriends, friendService, true);
 }
 
 function* loadMessages(messageService) {
