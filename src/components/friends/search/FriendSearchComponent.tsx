@@ -23,14 +23,8 @@ const friendComponent = () => {
 
   useEffect(() => {
     const subscription = onSearch$.pipe<string>(debounceTime(400)).subscribe(friend => {
-      // tslint:disable-next-line: object-shorthand-properties-first
-      // If there is no input then dispatch to load the friends
-      // friend.trim() !== ''
-      //   ? dispatch({ type: 'SEARCH_FRIENDS_START', friend })
-      //   : dispatch({ type: 'LOAD_FRIENDS', start: true });
       dispatch({ type: 'CLEAR_FRIENDS' });
       dispatch({ type: 'FRIENDS_FILTER', filterText: friend });
-      // dispatch({ type: 'SEARCH_FRIENDS_START', friend });
     });
   }, []);
 

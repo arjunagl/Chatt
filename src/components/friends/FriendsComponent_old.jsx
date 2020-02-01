@@ -1,15 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import FriendComponent from './FriendComponent';
 import * as FriendsComponentStyles from './FriendsComponentStyles';
 
-const FriendsComponent = () => {
-  const confirmedFriends = useSelector(state => state.chatt.friends.confirmedFriends);
-  const dispatch = useDispatch();
+const FriendsComponent = ({ confirmedFriends, loadFriends }) => {
   const ref = useRef(null);
-
-  const loadFriends = () => dispatch({ type: 'LOAD_FRIENDS' });
-
   function handleScroll() {
     if (ref.current.scrollTop + ref.current.clientHeight >= ref.current.scrollHeight) {
       loadFriends();
@@ -19,7 +14,10 @@ const FriendsComponent = () => {
 
   useEffect(() => {
     loadFriends();
-  }, [confirmedFriends.length]);
+    // if (confirmedFriends.length == 0) {
+    //   loadFriends();
+    // }
+  }, []);
 
   confirmedFriends.sort((firstFriend, secondFriend) => firstFriend.order >= secondFriend.order);
   const friendsToRender = confirmedFriends.map(friend => (
@@ -36,4 +34,17 @@ const FriendsComponent = () => {
   );
 };
 
-export default FriendsComponent;
+const mapStateToProps = state => {
+  return {
+    confirmedFriends: state.chatt.friends.confirmedFriends
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  loadFriends: () => dispatch({ type: 'LOAD_FRIENDS' })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FriendsComponent);
