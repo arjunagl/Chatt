@@ -1,5 +1,6 @@
 const initialState = {
-  confirmedFriends: []
+  confirmedFriends: [],
+  filter: ''
 };
 
 export default function friendsReducer(state = initialState, action) {
@@ -9,7 +10,7 @@ export default function friendsReducer(state = initialState, action) {
     case 'CLEAR_FRIENDS':
       return { ...state, confirmedFriends: [] };
     case 'FRIENDS_FILTER':
-      return { ...state, filter: action.filterText, confirmedFriends: [] };
+      return { ...state, filter: action.filterText };
     default:
       return state;
   }

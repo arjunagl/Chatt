@@ -16,7 +16,6 @@ const LandingComponent = ({ toggleMenu: dispatchToggleMenuCommand }) => {
         ☰
       </LandingPageStyles.MobileHeaderBlockContainer>
       <MessagingComponent style={LandingPageStyles.MessagingBlockContainerStyle} />
-      {/* <FriendsComponent style={LandingPageStyles.FriendsContainerStyle} /> */}
       <MenuComponent></MenuComponent>
     </LandingPageStyles.LandingBlockStyle>
   );

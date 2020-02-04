@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRouteComponent from './components/route';
+import LandingComponent from './components/landing';
 
 const LoadableLoginComponent = Loadable({
   loader: () => import('./components/login'),
@@ -19,7 +20,7 @@ const App = () => (
     <Switch>
       <Route exact path="/login" component={LoadableLoginComponent} />
       <Route exact path="/settings" render={() => <div>Settings Page</div>} />
-      <PrivateRouteComponent path="/" component={LoadableLandingPageComponent} />
+      <PrivateRouteComponent path="/" component={LandingComponent} />
     </Switch>
   </div>
 );

@@ -1,7 +1,6 @@
 import { put, takeEvery, call, select } from 'redux-saga/effects';
 
 function* loadFriends(friendService, action) {
-  // Read the number of friends already loaded in order to implement paging
   const getFriends = state => state.chatt.friends.confirmedFriends;
   const getFilterString = state => state.chatt.friends.filter;
   const loadedFriends = yield select(getFriends);
