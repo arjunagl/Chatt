@@ -15,6 +15,7 @@ const containerBlock = styled.div`
 export const searchComponentStyle = {
   width: '100%',
   borderRadius: '50px',
+  paddingLeft: '15px',
   fontSize: '1rem'
 };
 

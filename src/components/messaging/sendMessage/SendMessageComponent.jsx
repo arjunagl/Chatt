@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
 import * as SendMessageComponentStyles from './SendMessageComponentStyles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const SendMessageComponent = React.memo(({ messageFrom, messageTo, sendMessage, ...props }) => {
+const useStyles = makeStyles(theme => ({
+  button: {
+    borderRadius: '50px',
+    marginLeft: '10px'
+  }
+}));
+
+const SendMessageComponent = React.memo(({ ...props }) => {
+  const classes = useStyles();
   const [userInput, setUserInput] = useState({
     messageToSend: { value: '', valid: false }
   });
+
+  const messageFrom = useSelector(state => state.chatt.messages.from);
+  const messageTo = useSelector(state => state.chatt.messages.to);
+  const dispatch = useDispatch();
 
   // Enter handler for the input component
   const submitMessage = event => {
     if (event.key === 'Enter') {
       const { value: message, valid } = userInput.messageToSend;
       if (!valid) return;
-      sendMessage(message, messageFrom, messageTo);
+      dispatch({ type: 'SEND_MESSAGE', messageFrom, messageTo, message });
       setUserInput({ messageToSend: { value: '', valid: false } });
     }
   };
@@ -37,20 +51,11 @@ const SendMessageComponent = React.memo(({ messageFrom, messageTo, sendMessage, 
         onChange={setMessageToSend}
         value={value}
       />
+      <Button variant="contained" color="primary" className={classes.button}>
+        Send
+      </Button>
     </div>
   );
 });
 
-const mapStateToProps = state => ({
-  messageFrom: state.chatt.messages.from,
-  messageTo: state.chatt.messages.to
-});
-
-const mapDispatchToProps = dispatch => ({
-  sendMessage: (message, from, to) => dispatch({ type: 'SEND_MESSAGE', from, to, message })
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SendMessageComponent);
+export default SendMessageComponent;

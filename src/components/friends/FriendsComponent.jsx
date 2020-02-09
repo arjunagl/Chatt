@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import FriendComponent from './FriendComponent';
 import * as FriendsComponentStyles from './FriendsComponentStyles';
+import { useConfirmedFriends } from '../hooks/confirmedFriends';
 
 const FriendsComponent = () => {
-  const confirmedFriends = useSelector(state => state.chatt.friends.confirmedFriends, shallowEqual);
+  const confirmedFriends = useConfirmedFriends();
   const friendsFilter = useSelector(state => state.chatt.friends.filter, shallowEqual);
   const dispatch = useDispatch();
   const ref = useRef(null);

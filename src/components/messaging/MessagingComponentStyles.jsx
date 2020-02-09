@@ -17,7 +17,8 @@ const OutgoingMessageStyle = {
 };
 
 const SendMessageStyle = {
-  marginTop: '30px'
+  marginTop: '30px',
+  display: 'flex'
 };
 
 export { MessagingBlock, IncomingMessageStyle, OutgoingMessageStyle, SendMessageStyle };
