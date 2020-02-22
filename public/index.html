@@ -6,10 +6,38 @@
     <title>Chatt</title>
     <link rel="manifest" href="manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
+
+    <script>
+      alert('running script');
+      console.log('establishing connection');
+      let socket = new WebSocket('ws://localhost:9990/ws');
+
+      console.log('Attempting Connection...');
+
+      socket.onopen = () => {
+        console.log('Successfully Connected');
+        socket.send('Hi From the Client!');
+      };
+
+      socket.onclose = event => {
+        console.log('Socket Closed Connection: ', event);
+        socket.send('Client Closed!');
+      };
+
+      socket.onmessage = event => {
+        alert('received message', event);
+        console.log('message received = ', JSON.stringify(event));
+      };
+
+      socket.onerror = error => {
+        console.log('Socket Error: ', error);
+      };
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
+
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
