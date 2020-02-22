@@ -32,7 +32,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
-      PUBLIC_URL: JSON.stringify('https://localhost:3000')
+      PUBLIC_URL: JSON.stringify('https://localhost:3001')
     }),
     new CopyWebpackPlugin([
       { from: './src/serviceWorker.js', to: '../public/', toType: 'dir', force: true }
@@ -40,10 +40,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    https: false,
+    https: true,
     contentBase: path.join(__dirname, 'public/'),
     port: 3001,
-    publicPath: 'http://localhost:3000/dist/',
+    publicPath: 'https://localhost:3001/dist/',
     hotOnly: true
   }
 };

@@ -14,7 +14,6 @@ const FriendsComponent = () => {
 
   function handleScroll() {
     if (ref.current.scrollTop + ref.current.clientHeight >= ref.current.scrollHeight) {
-      console.log('executing friends load from scroll');
       loadFriends();
       return;
     }
