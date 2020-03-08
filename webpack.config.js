@@ -32,7 +32,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
-      PUBLIC_URL: JSON.stringify('https://localhost:3001')
+      PUBLIC_URL: JSON.stringify('https://localhost:3001'),
+      CHATT_SERVER_URL: JSON.stringify('ws://localhost:9990/ws')
     }),
     new CopyWebpackPlugin([
       { from: './src/serviceWorker.js', to: '../public/', toType: 'dir', force: true }

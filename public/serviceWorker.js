@@ -1,7 +1,13 @@
+const establishConnectionToServer = () => {
+  const swUrl = CHATT_SERVER;
+  console.log(`swUrl = ${swUrl}`);
+};
+
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 self.addEventListener('install', function installEvent(event) {
-  console.log('Registering service worker');
+  console.log('inside install');
+  // establishConnectionToServer();
 });
 
 self.addEventListener('fetch', function fetchEvent(event) {

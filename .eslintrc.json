@@ -11,7 +11,8 @@
     "navigator": "readonly",
     "document": "readonly",
     "console": "readonly",
-    "PUBLIC_URL": "readonly"
+    "PUBLIC_URL": "readonly",
+    "CHATT_SERVER_URL": "readonly"
   },
   "env": {
     "browser": true,

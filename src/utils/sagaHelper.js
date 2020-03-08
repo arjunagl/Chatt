@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 import { watchAndLoadMessages, MessageService } from '../components/messaging';
-import { watchAndSendMessage } from '../components/messaging/sendMessage';
+import { watchAndSendMessage, establishConnection } from '../components/messaging/sendMessage';
 import {
   watchAndLoadFriends,
   watchAndLoadMessagesForFriend,
@@ -11,6 +11,7 @@ export default function* rootSaga(services) {
   yield all([
     watchAndLoadMessages(services),
     watchAndSendMessage(services),
+    establishConnection(),
     watchAndLoadFriends(services),
     watchAndLoadMessagesForFriend(services)
   ]);
