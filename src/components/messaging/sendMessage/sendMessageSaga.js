@@ -5,8 +5,11 @@ import { select } from 'redux-saga/effects';
 let clientConnection;
 
 function* sendMessage([messageService], { message, from, to }) {
-  messageService.sendMessage(message, from, to);
-  clientConnection.sendMessage();
+  // messageService.sendMessage(message, from, to);
+  clientConnection.sendMessage({
+    to: 'testuser10',
+    message
+  });
   yield put({ type: 'SEND_MESSAGE_DONE', status: 'success', message, from, to });
 }
 
