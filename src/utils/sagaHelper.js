@@ -10,8 +10,8 @@ import {
 export default function* rootSaga(services) {
   yield all([
     watchAndLoadMessages(services),
-    watchAndSendMessage(services),
-    establishConnection(),
+    // watchAndSendMessage(services),
+    // establishConnection(),
     watchAndLoadFriends(services),
     watchAndLoadMessagesForFriend(services)
   ]);

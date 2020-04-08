@@ -5,9 +5,8 @@ import { select } from 'redux-saga/effects';
 let clientConnection;
 
 function* sendMessage([messageService], { message, from, to }) {
-  // messageService.sendMessage(message, from, to);
   clientConnection.sendMessage({
-    to: 'testuser10',
+    to: 'testuser1',
     message
   });
   yield put({ type: 'SEND_MESSAGE_DONE', status: 'success', message, from, to });
@@ -17,10 +16,19 @@ export function* watchAndSendMessage({ messageService }) {
   yield takeEvery('SEND_MESSAGE', sendMessage, [messageService]);
 }
 
+function* dispatchIncomingMessage(msg) {
+  console.log(`dispatching incoming message = ${msg}`);
+  yield put({ type: 'INCOMING_MESSAGE', messge: msg });
+}
+
 export function* establishConnection() {
   const loginId = yield select(state => state.chatt.login.userName);
   console.log(loginId);
   yield takeEvery('ESTABLISH_CONNECTION', () => {
     clientConnection = newChattConnection(loginId);
+    clientConnection.incomingStream.subscribe(val => {
+      console.log(`incoming message = ${val}`);
+      dispatchIncomingMessage(val);
+    });
   });
 }

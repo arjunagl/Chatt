@@ -21,6 +21,20 @@ export default function messageReducer(state = initialState, action) {
       const newState = { ...state, chatMessages: messages };
       return newState;
     }
+    case 'INCOMING_MESSAGE': {
+      const newMessage = {
+        order: state.chatMessages.length + 1,
+        direction: 'Incoming',
+        date: '',
+        from: action.from,
+        to: action.to,
+        message: action.Message
+      };
+      const messages = Array.from(state.chatMessages);
+      messages.push(newMessage);
+      const newState = { ...state, chatMessages: messages };
+      return newState;
+    }
     default:
       return state;
   }

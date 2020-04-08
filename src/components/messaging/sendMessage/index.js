@@ -1,5 +1,5 @@
 import SendMessageComponent from './SendMessageComponent';
-import { watchAndSendMessage, establishConnection } from './sendMessageSaga';
+// import { watchAndSendMessage, establishConnection } from './sendMessageSaga';
 
 export default SendMessageComponent;
-export { watchAndSendMessage, establishConnection };
+// export { watchAndSendMessage, establishConnection };

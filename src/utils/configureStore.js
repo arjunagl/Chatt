@@ -5,6 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga, { configureServices } from './sagaHelper';
 import createReducer from '../reducers';
 import history from './history';
+import { socketReader } from '../middlewares/socketConnectionMiddleWare';
 
 // Setup redux-devtools-extension
 const composeEnhancers = composeWithDevTools({
@@ -18,7 +19,9 @@ export default () => {
   const store = createStore(
     createReducer(history),
     {},
-    composeEnhancers(compose(applyMiddleware(routerMiddleware(history), sagaMiddleware)))
+    composeEnhancers(
+      compose(applyMiddleware(routerMiddleware(history), sagaMiddleware, socketReader))
+    )
   );
 
   sagaMiddleware.run(rootSaga, configureServices());
