@@ -9,6 +9,7 @@
     "start-cert": "npm run copy && webpack-dev-server --mode development --cert=./certificates/DevCert/02.pem ----key=./certificates/DevCert/private-key.key",
     "start": "webpack-dev-server --mode development",
     "setup": "node ./src/utils/certHelper.js",
+    "wp:generate-vapid-keys": "web-push generate-vapid-keys [--json]",
     "build": "webpack"
   },
   "keywords": [],
@@ -43,6 +44,7 @@
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.5",
+    "web-push": "^3.4.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3",

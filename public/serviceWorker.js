@@ -6,8 +6,7 @@ const establishConnectionToServer = () => {
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 self.addEventListener('install', function installEvent(event) {
-  console.log('inside install');
-  // establishConnectionToServer();
+  console.log(`service worker is now active`);
 });
 
 self.addEventListener('fetch', function fetchEvent(event) {
