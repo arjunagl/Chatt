@@ -1,12 +1,13 @@
 export default async function registerServiceWorker() {
   const swUrl = `${PUBLIC_URL}/serviceWorker.js`;
-  if (!'serviceWorker' in navigator) {
+  if (!('serviceWorker' in navigator)) {
     return;
   }
 
   navigator.serviceWorker.register(swUrl, { scope: '/' }).then(
+    // eslint-disable-next-line func-names
     function(reg) {
-      var serviceWorker;
+      let serviceWorker;
       if (reg.installing) {
         serviceWorker = reg.installing;
       } else if (reg.waiting) {
@@ -16,21 +17,29 @@ export default async function registerServiceWorker() {
       }
 
       if (serviceWorker) {
-        if (serviceWorker.state == 'activated') {
-          //If push subscription wasnt done yet have to do here
-          console.log('sw already activated - Do watever needed here');
+        if (serviceWorker.state === 'activated') {
+          // If push subscription wasnt done yet have to do here
           const subscribeOptions = {
             userVisibleOnly: true,
             applicationServerKey:
               'BM221uCcUB6tJBektDBpuhrFtvECNs7mcShfG6NUnUUR1lV7vGWmWMm7eNZ0ztW4IjDPsGOAG9sQOkjP1hC_23A'
           };
-          reg.pushManager.subscribe(subscribeOptions).then(function(pushSubscription) {
+          reg.pushManager.subscribe(subscribeOptions).then(pushSubscription => {
             console.log(`pushSubscription = ${pushSubscription}`);
+            console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
+            console.log('Sending push');
+            fetch('http://localhost:9990/subscribe', {
+              method: 'POST',
+              body: JSON.stringify(pushSubscription),
+              headers: {
+                'content-type': 'application/json'
+              }
+            });
           });
         }
-        serviceWorker.addEventListener('statechange', function(e) {
+        serviceWorker.addEventListener('statechange', e => {
           console.log('sw statechange : ', e.target.state);
-          if (e.target.state == 'activated') {
+          if (e.target.state === 'activated') {
             // use pushManger for subscribing here.
             console.log('Just now activated. now we can subscribe for push notification');
             // subscribeForPushNotification(reg);
@@ -38,8 +47,9 @@ export default async function registerServiceWorker() {
         });
       }
     },
+    // eslint-disable-next-line func-names
     function(err) {
-      console.error('unsuccessful registration with ', workerFileName, err);
+      console.error('unsuccessful registration with ', err);
     }
   );
 
