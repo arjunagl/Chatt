@@ -1,23 +1,37 @@
-// const establishConnectionToServer = () => {};
-
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
-self.addEventListener('activate', function installEvent(event) {
-  console.log(`service worker is now active`);
+
+let getVersionPort;
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'INIT_PORT') {
+    [getVersionPort] = event.ports;
+  }
 });
 
-// self.addEventListener('fetch', function fetchEvent(event) {
-//   event.respondWith(
-//     caches.open('chatt-dynamic').then(function cacheOpen(cache) {
-//       return cache.match(event.request).then(function cacheOpenResponse(response) {
-//         return (
-//           response ||
-//           fetch(event.request).then(function fetchRequestEvent(frResponse) {
-//             cache.put(event.request, frResponse.clone());
-//             return response;
-//           })
-//         );
-//       });
-//     })
-//   );
-// });
+self.addEventListener('push', e => {
+  if (!e.data) {
+    console.log(`recieved a push notification without any message`);
+    return;
+  }
+
+  const options = {
+    body: e.data.text(),
+    icon: 'images/notification-flat.png',
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1
+    },
+    actions: [
+      { action: 'viewMessage', title: 'View  Message', icon: 'images/checkmark.png' },
+      { action: 'close', title: 'Ignore', icon: 'images/xmark.png' }
+    ]
+  };
+  e.waitUntil(self.registration.showNotification('Push Notification', options));
+});
+
+self.addEventListener('notificationclick', event => {
+  if (event.action === 'viewMessage') {
+    getVersionPort.postMessage({ payload: e.notification.body });
+  }
+});

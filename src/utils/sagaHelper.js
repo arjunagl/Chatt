@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 import { watchAndLoadMessages, MessageService } from '../components/messaging';
-import { watchAndSendMessage, establishConnection } from '../components/messaging/sendMessage';
+import { watchOnPushMessages } from '../sagas/webPushSaga.ts';
 import {
   watchAndLoadFriends,
   watchAndLoadMessagesForFriend,
@@ -10,10 +10,9 @@ import {
 export default function* rootSaga(services) {
   yield all([
     watchAndLoadMessages(services),
-    // watchAndSendMessage(services),
-    // establishConnection(),
     watchAndLoadFriends(services),
-    watchAndLoadMessagesForFriend(services)
+    watchAndLoadMessagesForFriend(services),
+    watchOnPushMessages()
   ]);
 }
 

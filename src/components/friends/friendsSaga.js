@@ -1,6 +1,6 @@
 import { put, takeEvery, call, select } from 'redux-saga/effects';
 
-function* loadFriends(friendService, action) {
+function* loadFriends(friendService) {
   const getFriends = state => state.chatt.friends.confirmedFriends;
   const getFilterString = state => state.chatt.friends.filter;
   const loadedFriends = yield select(getFriends);
