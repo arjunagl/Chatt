@@ -8,11 +8,10 @@ navigator?.serviceWorker?.controller?.postMessage(
   },
   [messageChannel.port2]
 );
+
 const createWebPushChannel = () => {
   return eventChannel(emit => {
     messageChannel.port1.onmessage = event => {
-      // Print the result
-      console.log(event.data.payload);
       emit({ a: 'b' });
     };
 

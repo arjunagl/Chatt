@@ -15,8 +15,9 @@ const composeEnhancers = composeWithDevTools({
 // Setup redux saga
 const sagaMiddleware = createSagaMiddleware();
 
+let store;
 export default () => {
-  const store = createStore(
+  store = createStore(
     createReducer(history),
     {},
     composeEnhancers(
@@ -25,5 +26,9 @@ export default () => {
   );
 
   sagaMiddleware.run(rootSaga, configureServices());
+  return store;
+};
+
+export const getStore = () => {
   return store;
 };

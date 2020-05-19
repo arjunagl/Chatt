@@ -19,6 +19,6 @@ ReactDOM.render(
 );
 
 // Just uncomment this line to register the service worker and get it working
-(async function() {
+(async function initServiceWorker() {
   await registerServiceWorker();
 })();

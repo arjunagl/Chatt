@@ -32,6 +32,6 @@ self.addEventListener('push', e => {
 
 self.addEventListener('notificationclick', event => {
   if (event.action === 'viewMessage') {
-    getVersionPort.postMessage({ payload: e.notification.body });
+    getVersionPort.postMessage({ payload: event.notification.body });
   }
 });

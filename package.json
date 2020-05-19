@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "cp src/serviceWorker.js public",
     "start-cert": "npm run copy && webpack-dev-server --mode development --cert=./certificates/DevCert/02.pem ----key=./certificates/DevCert/private-key.key",
-    "start": "webpack-dev-server --mode development",
+    "start": "npm run copy && webpack-dev-server --mode development",
     "setup": "node ./src/utils/certHelper.js",
     "wp:generate-vapid-keys": "web-push generate-vapid-keys [--json]",
     "build": "webpack"

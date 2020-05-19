@@ -1,3 +1,5 @@
+import { getStore } from './configureStore';
+
 export default async function registerServiceWorker() {
   const swUrl = `${PUBLIC_URL}/serviceWorker.js`;
   if (!('serviceWorker' in navigator)) {
@@ -11,7 +13,9 @@ export default async function registerServiceWorker() {
         'BM221uCcUB6tJBektDBpuhrFtvECNs7mcShfG6NUnUUR1lV7vGWmWMm7eNZ0ztW4IjDPsGOAG9sQOkjP1hC_23A'
     };
     reg.pushManager.subscribe(subscribeOptions).then(pushSubscription => {
-      fetch('http://localhost:9990/subscribe', {
+      const store = getStore();
+
+      fetch(`http://localhost:9990/subscribe/${store.getState().chatt.login.userName}`, {
         method: 'POST',
         body: JSON.stringify(pushSubscription),
         headers: {
